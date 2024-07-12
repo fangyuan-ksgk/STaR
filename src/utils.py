@@ -210,7 +210,7 @@ class STaRPipeline:
                 self.qadata = self.save(datapoint, self.qadata)
                 
         # Update the qadata into local database
-        self.qadata.save()
+        self.qadata.store()
             
     def save(self, datapoint: STaRDatapoint, qadata: InsuranceQAData):
         """ 
