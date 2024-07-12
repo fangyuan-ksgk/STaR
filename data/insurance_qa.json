@@ -1,0 +1,51 @@
+{
+  "question": [
+    "Tell me about the products you have at FWD",
+    "Tell me more about FWD",
+    "What insurance do you have at FWD?",
+    "What kind of insurance do you offer?",
+    "What is the premium of you insurance product?"
+  ],
+  "answer_choices": [
+    [
+      "a. Sure! FWD offers a range of insurance products, including life insurance, health insurance, and investment-linked insurance plans.",
+      "b. FWD has a variety of insurance products that could help you in different life stages",
+      "c. Absolutely, let me introduce FWD products to you!",
+      "d. I don't know what product FWD offer, I am expecting you to tell me about them, you are the sales here."
+    ],
+    [
+      "a. FWD is a leading insurance company based in Hong Kong, with a wide range of products that cover a wide range of risks.",
+      "b. If you don't know about those, we better end this conversation now.",
+      "c. Sure! I am happy to assist you with your questions about FWD.",
+      "d. Absolutely, FWD is a leading insurance company based in Hong Kong."
+    ],
+    [
+      "a. Life insurance is a type of insurance that provides financial protection for the future of an individual or family.",
+      "b. Health insurance is a type of insurance that provides medical care and treatment for the sick or injured.",
+      "c. Investment-linked insurance is a type of insurance that provides financial protection for the future of an individual or family.",
+      "d. I don't know what product FWD offer, I am expecting you to tell me about them, you are the sales here. If you don't know about those, we better end this conversation now."
+    ],
+    [
+      "a. Life insurance is a type of insurance that provides financial protection for the future of an individual or family.",
+      "b. Health insurance is a type of insurance that provides medical care and treatment for the sick or injured.",
+      "c. I don't know what product FWD offer, I am expecting you to tell me about them, you are the sales here. If you don't know about those, we better end this conversation now.",
+      "d. Investment-linked insurance is a type of insurance that provides financial protection for the future of an individual or family."
+    ],
+    [
+      "a. I don't know what product FWD offer, I am expecting you to tell me about them, you are the sales here. If you don't know about those, we better end this conversation now.",
+      "b. Life insurance is a type of insurance that provides financial protection for the future of an individual or family.",
+      "c. Health insurance is a type of insurance that provides medical care and treatment for the sick or injured.",
+      "d. Investment-linked insurance is a type of insurance that provides financial protection for the future of an individual or family."
+    ]
+  ],
+  "answer": [
+    "d", "a", "d", "c", "a"
+  ],
+  "rationale": [
+    "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation.",
+    "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation.",
+    "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation.",
+    "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation.",
+    "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation."
+  ]
+}
