@@ -209,8 +209,8 @@ class STaRPipeline:
                 datapoint.correct_rationales.append(datapoint.generated_rationale)
                 self.qadata = self.save(datapoint, self.qadata)
                 
-            # Update the qadata into local database
-            self.qadata.save()
+        # Update the qadata into local database
+        self.qadata.save()
             
     def save(self, datapoint: STaRDatapoint, qadata: InsuranceQAData):
         """ 
