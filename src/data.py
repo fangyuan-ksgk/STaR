@@ -12,6 +12,7 @@ class InsuranceQAData:
             "answer": [],
             "rationale": []
         }
+        self.load()
 
     def add_qa(self, question, answer_choices, correct_answer, rationale):
         self.data["question"].append(question)
