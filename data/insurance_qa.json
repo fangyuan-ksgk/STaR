@@ -4,7 +4,9 @@
     "Tell me more about FWD",
     "What insurance do you have at FWD?",
     "What kind of insurance do you offer?",
-    "What is the premium of you insurance product?"
+    "What is the premium of you insurance product?",
+    "What are the benefits of FWD insurance?",
+    "Can you explain FWD's claim process?"
   ],
   "answer_choices": [
     [
@@ -23,7 +25,7 @@
       "a. Life insurance is a type of insurance that provides financial protection for the future of an individual or family.",
       "b. Health insurance is a type of insurance that provides medical care and treatment for the sick or injured.",
       "c. Investment-linked insurance is a type of insurance that provides financial protection for the future of an individual or family.",
-      "d. I don't know what product FWD offer, I am expecting you to tell me about them, you are the sales here. If you don't know about those, we better end this conversation now."
+      "d. I don't know what product FWD has, I am expecting you to tell me about them, you are the sales here. If you don't know about those, we better end this conversation now."
     ],
     [
       "a. Life insurance is a type of insurance that provides financial protection for the future of an individual or family.",
@@ -32,16 +34,31 @@
       "d. Investment-linked insurance is a type of insurance that provides financial protection for the future of an individual or family."
     ],
     [
-      "a. I don't know what product FWD offer, I am expecting you to tell me about them, you are the sales here. If you don't know about those, we better end this conversation now.",
-      "b. Life insurance is a type of insurance that provides financial protection for the future of an individual or family.",
-      "c. Health insurance is a type of insurance that provides medical care and treatment for the sick or injured.",
-      "d. Investment-linked insurance is a type of insurance that provides financial protection for the future of an individual or family."
+      "a. What? You are kidding me right? You are the sales agent here.... Let's end the conversation right now.",
+      "b. The premium for insurance at FWD ranges from $50 to $500 per month, depending on the type of coverage and individual factors.",
+      "c. The premium for FWD insurance products varies based on factors such as age, health condition, and coverage amount.",
+      "d. The premium for FWD insurance policies is competitive and can be customized to fit your budget and needs."
+    ],
+    [
+      "a. FWD insurance is the best choice for comprehensive coverage and customer service.",
+      "b. You are really secured and protected from medical expenses with FWD's health insurance plans.",
+      "c. If you don't know the benefit, it is a good time to end our conversation.",
+      "d. The most important advantage of FWD insurance is its flexibility and customizable policies."
+    ],
+    [
+      "a. Sure, I'm happy to explain the claim process",
+      "b. Absolutely, the claim process is straightforward",
+      "c. It is a super easy process to claim",
+      "d. You are supposed to tell me! Let's end the conversation now, you are a terrible sales person."
     ]
+
   ],
   "answer": [
-    "d", "a", "d", "c", "a"
+    "d", "b", "d", "c", "a", "c", "d"
   ],
   "rationale": [
+    "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation.",
+    "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation.",
     "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation.",
     "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation.",
     "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation.",
