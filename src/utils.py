@@ -90,18 +90,23 @@ roleplay_prompt = "Roleplay as Maria, a Filipina woman having a conversation wit
 
 class STaRDatapoint:
     
-    def __init__(self, question, answer_choices, correct_answer, pipe, oai_client):
+    def __init__(self, question, answer_choices, correct_answer, rationale, pipe, oai_client):
         self.question = question
         self.answer_choices = answer_choices
         self.correct_answer = correct_answer
+        self.hint_rationale = rationale
         self.generated_rationale = ""
         self.generated_answer = ""
         self.oai_client = oai_client
         self.pipe = pipe
         self.correct_rationales = [] # Record of all the correct rationales
 
-    def generate_rationale_and_answer(self, use_lm=False):
-        system_prompt = f"{roleplay_prompt} You are Maria, responding to queries from an FWD insurance agent."
+    def generate_rationale_and_answer(self, use_lm=False, use_hint=False):
+        if use_hint:
+            system_prompt = f"{roleplay_prompt} You are Maria, responding to queries from an FWD insurance agent. Hint: {self.hint_rationale}"
+        else:
+            system_prompt = f"{roleplay_prompt} You are Maria, responding to queries from an FWD insurance agent."
+            
         user_prompt = f"FWD agent asks: {self.question}\nPossible responses: {self.answer_choices}\nAs Maria, provide your rationale and choose an answer. Your response should be in the format:\nRationale: [Your rationale here]\nAnswer: [Single letter a/b/c/d corresponding to your chosen response]"
         
         if use_lm:
@@ -155,8 +160,8 @@ class STaRPipeline:
         self.num_rationales = num_rationales
 
         # Initialize STaR datapoints here
-        self.datapoints = [STaRDatapoint(q, ac, a, self.pipe, self.oai_client) 
-                           for q, ac, a in zip(data["question"], data["answer_choices"], data["answer"])]
+        self.datapoints = [STaRDatapoint(q, ac, a, r, self.pipe, self.oai_client) 
+                           for q, ac, a, r in zip(data["question"], data["answer_choices"], data["answer"], data["rationale"])]
 
     def process_datapoints(self):
         for datapoint in self.datapoints:
@@ -168,26 +173,19 @@ class STaRPipeline:
                 print("Wrong Answer")
                 # If wrong, use strong LLM (OpenAI) to generate multiple rationales
                 for _ in range(self.num_rationales):
-                    # Prompt the strong LLM (OpenAI) to provide rationale for the correct answer
-                    prompt = f"""
-                    Question: {datapoint.question}
+                    response = datapoint.generate_rationale_and_answer(use_lm=False, use_hint=True)
+                          
+                    # Generate rationale using strong LLM
+                    strong_rationale = datapoint.generated_rationale
                     
-                    The correct answer is: {datapoint.answer_choices[ord(datapoint.correct_answer) - ord('a')][3:]}
-
-                    Please provide a concise rationale explaining why this is the correct answer. No need to mention the answer.
-                    """
-                    response = get_oai_response(prompt, system_prompt="You are an expert in reasoning.", oai_client=self.oai_client)
+                    # Check if the answer is correct
+                    if datapoint.check_answer():
+                        # If correct, update the datapoint and break the loop
+                        datapoint.generated_rationale = strong_rationale
+                        datapoint.correct_rationales.append(strong_rationale)
+                        print("Strong Rationale: ", strong_rationale)
                     
-                    # Extract the rationale from the response
-                    strong_rationale = response
-                    
-                    # Update the datapoint with the strong rationale and correct answer
-                    datapoint.generated_rationale = strong_rationale
-                    datapoint.generated_answer = datapoint.correct_answer
-                    
-                    # Add the rationale to correct_rationales
-                    datapoint.correct_rationales.append(strong_rationale)
-                    print("Strong Rationale: ", strong_rationale)
+                    # If incorrect, continue to next iteration to generate another rationale
                     
             else:
                 # 3. If correct, record the rationale
