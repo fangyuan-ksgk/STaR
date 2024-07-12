@@ -13,6 +13,9 @@ from .data import InsuranceQAData
 # LMDeploy + OpenAI (Student & Teacher Pair)
 # model_id = "Ksgk-fy/ecoach_phil_v11_3"
 # pipe = lmdeploy.pipeline(model_id)
+import os
+
+os.environ["OPENAI_API_KEY"] = "YOUR_API_KEY"
 
 API_KEY = getenv("OPENAI_API_KEY")
 
@@ -168,7 +171,7 @@ class STaRPipeline:
         
         self.model_id = model_id
         self.pipe = lmdeploy.pipeline(model_id)
-        self.oai_client = OpenAI(api_key=API_KEY)
+        self.oai_client = OpenAI(api_key=getenv("OPENAI_API_KEY"))
         self.roleplay_prompt = roleplay_prompt
         self.num_rationales = num_rationales
         self.qadata = qadata
