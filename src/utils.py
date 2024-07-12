@@ -7,6 +7,7 @@ from os import getenv
 import json
 import lmdeploy
 import os
+from .data import InsuranceQAData
 
 # Model & LLM 
 # LMDeploy + OpenAI (Student & Teacher Pair)
@@ -153,14 +154,22 @@ class STaRDatapoint:
     
 class STaRPipeline:
     
-    def __init__(self, model_id, roleplay_prompt, data, num_rationales=5):
+    def __init__(self, 
+                 model_id: str, 
+                 roleplay_prompt: str, 
+                 qadata: InsuranceQAData, 
+                 num_rationales: int = 5):
+        
         self.model_id = model_id
         self.pipe = lmdeploy.pipeline(model_id)
         self.oai_client = OpenAI(api_key=API_KEY)
         self.roleplay_prompt = roleplay_prompt
         self.num_rationales = num_rationales
+        self.qadata = qadata
+
 
         # Initialize STaR datapoints here
+        data = self.qadata.data
         self.datapoints = [STaRDatapoint(q, ac, a, r, self.pipe, self.oai_client) 
                            for q, ac, a, r in zip(data["question"], data["answer_choices"], data["answer"], data["rationale"])]
 
@@ -185,9 +194,22 @@ class STaRPipeline:
                         datapoint.generated_rationale = strong_rationale
                         datapoint.correct_rationales.append(strong_rationale)
                         print("Strong Rationale: ", strong_rationale)
+                        self.qadata = self.save(datapoint, self.qadata)
                     
                     # If incorrect, continue to next iteration to generate another rationale
                     
             else:
                 # 3. If correct, record the rationale
                 datapoint.correct_rationales.append(datapoint.generated_rationale)
+                self.qadata = self.save(datapoint, self.qadata)
+                
+            # Update the qadata into local database
+            self.qadata.save()
+            
+    def save(self, datapoint: STaRDatapoint, qadata: InsuranceQAData):
+        """ 
+        Save the augmented data to the original data
+        """
+        # We only want to save the current datapoint, not iterate over all datapoints
+        qadata.add_qa(datapoint.question, datapoint.answer_choices, datapoint.correct_answer, datapoint.generated_rationale)
+        return qadata 
