@@ -27,10 +27,16 @@ class InsuranceQAData:
         """ 
         Adding to the original data / star data
         """
-        self.data["question"].append(question)
-        self.data["answer_choices"].append(answer_choices)
-        self.data["answer"].append(correct_answer)
-        self.data["rationale"].append(rationale)
+        if to_original:
+            self.data["question"].append(question)
+            self.data["answer_choices"].append(answer_choices)
+            self.data["answer"].append(correct_answer)
+            self.data["rationale"].append(rationale)
+        else:
+            self.star_data["question"].append(question)
+            self.star_data["answer_choices"].append(answer_choices)
+            self.star_data["answer"].append(correct_answer)
+            self.star_data["rationale"].append(rationale)
 
     def store(self):
         """ 

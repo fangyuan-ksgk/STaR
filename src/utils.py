@@ -214,8 +214,8 @@ class STaRPipeline:
             
     def save(self, datapoint: STaRDatapoint, qadata: InsuranceQAData):
         """ 
-        Save the augmented data to the original data
+        Save the augmented data
         """
         # We only want to save the current datapoint, not iterate over all datapoints
-        qadata.add_qa(datapoint.question, datapoint.answer_choices, datapoint.correct_answer, datapoint.generated_rationale)
+        qadata.add_qa(datapoint.question, datapoint.answer_choices, datapoint.correct_answer, datapoint.generated_rationale, to_original=False)
         return qadata 
