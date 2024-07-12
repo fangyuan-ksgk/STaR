@@ -6,7 +6,10 @@
     "What kind of insurance do you offer?",
     "What is the premium of you insurance product?",
     "What are the benefits of FWD insurance?",
-    "Can you explain FWD's claim process?"
+    "Can you explain FWD's claim process?",
+    "Uh",
+    "Oh",
+    "It"
   ],
   "answer_choices": [
     [
@@ -50,11 +53,37 @@
       "b. Absolutely, the claim process is straightforward",
       "c. It is a super easy process to claim",
       "d. You are supposed to tell me! Let's end the conversation now, you are a terrible sales person."
+    ],
+    [
+      "a. Sure! FWD's premium ...",
+      "b. FWD has a variety of insurance products that could help you in different life stages",
+      "c. Sure! FWD's life insurance plans can ...",
+      "d. Did you say something? I did not hear anything here."
+    ],
+    [
+      "a. Sure! FWD's premium ...",
+      "b. FWD has a variety of insurance products that could help you in different life stages",
+      "c. Sure! FWD's life insurance plans can ...",
+      "d. Did you say something? I did not hear anything here."
+    ],
+    [
+      "a. Sure! FWD's premium ...",
+      "b. FWD has a variety of insurance products that could help you in different life stages",
+      "c. Sure! FWD's life insurance plans can ...",
+      "d. Did you say something? I did not hear anything here."
     ]
-
   ],
   "answer": [
-    "d", "b", "d", "c", "a", "c", "d"
+    "d",
+    "b",
+    "d",
+    "c",
+    "a",
+    "c",
+    "d",
+    "d",
+    "d",
+    "d"
   ],
   "rationale": [
     "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation.",
@@ -63,6 +92,9 @@
     "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation.",
     "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation.",
     "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation.",
-    "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation."
+    "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation.",
+    "You hear a scatter query, which does not mean anything to you, so you could ask him to clarify.",
+    "You hear a scatter query, which does not mean anything to you, so you could ask him to clarify.",
+    "You hear a scatter query, which does not mean anything to you, so you could ask him to clarify."
   ]
 }
