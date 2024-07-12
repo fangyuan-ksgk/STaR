@@ -124,8 +124,14 @@ class STaRDatapoint:
         return response
 
     def check_answer(self):
+        """ 
+        Check if the generated answer is correct with valid rationale
+        """
         is_valid = self.generated_answer and self.generated_rationale
-        is_correct = self.generated_answer.lower() == self.correct_answer.lower()
+        try:
+            is_correct = self.generated_answer.lower() == self.correct_answer.lower()
+        except:
+            is_correct = False
         return is_valid and is_correct 
     
     def generate(self, n, use_lm=False):
