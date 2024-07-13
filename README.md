@@ -8,3 +8,17 @@ SLM is confused from time to time, use strong LLM to get around it.
 ```shell
 python run.py
 ```
+
+Resulting SFT ready dataset 
+```shell
+data/msg_list.json
+```
+
+Adding to QA dataset 
+```python
+from src import QAdata
+qadata = QAdata()
+qadata.add_qa(data)
+```
+
+
