@@ -1,7 +1,7 @@
 from src.utils import STaRPipeline
-from src.data import InsuranceQAData
+from src.data import QAData
 
-qa_data = InsuranceQAData()
+qa_data = QAData()
 
 pipe = STaRPipeline(
     model_id="Ksgk-fy/ecoach_phil_v11_3", 
@@ -10,4 +10,9 @@ pipe = STaRPipeline(
     num_rationales=50
 )
 
+print("------- Distilled Reasoning with Human feedback ....")
 pipe.process_datapoints()
+
+print("------- Completed. Preparing SFT data ....")
+qa_data.prep_data()
+print("------- Completed. SFT data prepared.")

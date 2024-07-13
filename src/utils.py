@@ -185,14 +185,13 @@ class STaRPipeline:
     def process_datapoints(self):
         for datapoint in self.datapoints:
             # 1. Use the to-be-trained model to generate rationale and answer
-            response = datapoint.generate_rationale_and_answer(use_lm=True)
+            datapoint.generate_rationale_and_answer(use_lm=True)
             
             # 2. Check if the answer is correct
             if not datapoint.check_answer():
-                print("Wrong Answer")
                 # If wrong, use strong LLM (OpenAI) to generate multiple rationales
                 for _ in range(self.num_rationales):
-                    response = datapoint.generate_rationale_and_answer(use_lm=False, use_hint=True)
+                    datapoint.generate_rationale_and_answer(use_lm=False, use_hint=True)
                           
                     # Generate rationale using strong LLM
                     strong_rationale = datapoint.generated_rationale
