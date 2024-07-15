@@ -1,5 +1,5 @@
 from src.utils import STaRPipeline
-from src.data import QAData
+from src.dataclass import QAData
 
 qa_data = QAData()
 

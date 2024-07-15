@@ -1,2 +1,2 @@
-from data import QAData
-from utils import STaRPipeline
+from .dataclass import QAData
+from .utils import STaRPipeline

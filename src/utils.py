@@ -7,7 +7,7 @@ from os import getenv
 import json
 import lmdeploy
 import os
-from .data import InsuranceQAData
+from .dataclass import InsuranceQAData
 
 # Model & LLM 
 # LMDeploy + OpenAI (Student & Teacher Pair)

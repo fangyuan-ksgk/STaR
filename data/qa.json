@@ -9,7 +9,9 @@
     "Can you explain FWD's claim process?",
     "Uh",
     "Oh",
-    "It"
+    "It",
+    "alright, I will like to share more about FWD life insurance Set for Life",
+    "I will like to share with you about our policies that can help you achieve your financial goal"
   ],
   "answer_choices": [
     [
@@ -71,6 +73,18 @@
       "b. FWD has a variety of insurance products that could help you in different life stages",
       "c. Sure! FWD's life insurance plans can ...",
       "d. Did you say something? I did not hear anything here."
+    ],
+    [
+      "a. Huh?",
+      "b. No, I am not familiar with FWD.",
+      "c. What was that?",
+      "d. Okay, tell me about it."
+    ],
+    [
+      "a. Huh?",
+      "b. Can you say that again?",
+      "c. What was that?",
+      "d. Oh boy, another sales pitch. Let me grab my popcorn!"
     ]
   ],
   "answer": [
@@ -80,6 +94,8 @@
     "c",
     "a",
     "c",
+    "d",
+    "d",
     "d",
     "d",
     "d",
@@ -95,6 +111,8 @@
     "The only reason you are chatting with this sales agent, is because you expect him to tell you about FWD and insurance. Given such weird question, you should consider ending the conversation.",
     "You hear a scatter query, which does not mean anything to you, so you could ask him to clarify.",
     "You hear a scatter query, which does not mean anything to you, so you could ask him to clarify.",
-    "You hear a scatter query, which does not mean anything to you, so you could ask him to clarify."
+    "You hear a scatter query, which does not mean anything to you, so you could ask him to clarify.",
+    "You are here to learn more about what insurance product FWD offers, so you should let him tell you about it.",
+    "You're interested in learning about FWD's insurance products, but the agent's approach seems impersonal and scripted, as if they use the same pitch for everyone. Despite this, you should let him continue."
   ]
 }
